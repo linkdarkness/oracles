@@ -1,0 +1,343 @@
+/* ===== VARIABLES COULEURS ===== */
+:root {
+    --bg-main: #fcf8f9;        /* Fond général blanc-rosé très doux */
+    --bg-card: #ffffff;        /* Fond des cartes blanc pur */
+    --primary-pink: #e8b4b8;   /* Rose poudré principal */
+    --accent-pink: #d8969b;    /* Rose poudré plus soutenu pour le survol */
+    --text-dark: #4a3e3d;      /* Texte marron/gris doux */
+    --text-muted: #7a6e6d;     /* Texte secondaire */
+    --rose-gold: #c98a90;      /* Titres et éléments d'accentuation */
+    --shadow-soft: 0 8px 25px rgba(216, 150, 155, 0.15); /* Ombre douce rosée */
+}
+
+/* ===== BASE & TYPOGRAPHIE ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-dark);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fff0f3;
+    border-bottom: 2px solid #f9e2e5;
+    position: relative;
+}
+
+header h1 {
+    font-size: 38px;
+    color: var(--rose-gold);
+    margin: 0 0 20px 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#menu, nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+#menu button, nav button {
+    background: var(--primary-pink);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 22px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(232, 180, 184, 0.3);
+}
+
+#menu button:hover, nav button:hover {
+    background: var(--accent-pink);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(216, 150, 155, 0.4);
+}
+
+nav a, #menu a {
+    text-decoration: none;
+}
+
+/* ===== BOUTON BURGER ===== */
+.burger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 32px;
+    height: 28px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+}
+
+.burger-btn span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--rose-gold);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Animation en Croix (X) */
+.burger-btn.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.burger-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+.burger-btn.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ===== SECTION & TITRES ===== */
+section {
+    padding: 40px 20px;
+}
+
+h2 {
+    text-align: center;
+    color: var(--rose-gold);
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* ===== BARRE DE RECHERCHE ===== */
+.recherche {
+    text-align: center;
+    margin: 30px auto;
+}
+
+#barreRecherche {
+    width: 320px;
+    padding: 14px 22px;
+    border-radius: 30px;
+    border: 2px solid #f2d6d8;
+    background: #ffffff;
+    font-size: 16px;
+    color: var(--text-dark);
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+#barreRecherche:focus {
+    border-color: var(--primary-pink);
+    box-shadow: 0 0 12px rgba(232, 180, 184, 0.4);
+}
+
+/* ===== CARTES & GRILLE ===== */
+.cartes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carte {
+    background: var(--bg-card);
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: left;
+    border: 1px solid #f6e3e5;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carte:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(216, 150, 155, 0.25);
+}
+
+.carte-card {
+    padding: 20px;
+}
+
+.carte-card img, .carte img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #fff8f9;
+    transition: transform 0.4s ease;
+}
+
+.carte h3 {
+    color: var(--rose-gold);
+    text-align: center;
+    font-size: 22px;
+    margin: 15px 0;
+}
+
+.carte p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.carte p strong {
+    color: var(--rose-gold);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #fff0f3;
+    color: var(--text-muted);
+    border-top: 1px solid #f9e2e5;
+    font-size: 14px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================== */
+/*           OPTIMISATION MOBILE              */
+/* ========================================== */
+
+@media (max-width: 992px) {
+    header h1 {
+        font-size: 32px;
+    }
+    .cartes {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    section {
+        padding: 20px 12px;
+    }
+
+    header {
+        padding: 25px 15px;
+    }
+
+    header h1 {
+        font-size: 24px;
+        letter-spacing: 0;
+        padding-left: 25px; /* Évite de chevaucher le bouton burger */
+    }
+
+    .burger-btn {
+        display: flex;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    #menu, nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    #menu.active {
+        display: flex;
+        animation: apparition 0.3s ease-in-out;
+    }
+
+    #menu button, nav button, #menu a, nav a {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    #menu button, nav button {
+        padding: 12px 15px;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .recherche {
+        margin: 20px 0;
+        padding: 0 10px;
+    }
+
+    #barreRecherche {
+        width: 100%;
+        max-width: 320px;
+        padding: 12px 18px;
+        font-size: 15px;
+    }
+
+    .cartes {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .carte {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .carte-card {
+        padding: 15px;
+    }
+
+    .carte h3 {
+        font-size: 19px;
+    }
+
+    .carte img {
+        max-height: 280px;
+    }
+}
+
+@media (max-width: 400px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    #menu button, nav button {
+        font-size: 13px;
+    }
+
+    .carte {
+        max-width: 100%;
+    }
+}
